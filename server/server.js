@@ -21,9 +21,19 @@ wsServer.on('request', function(request) {
   connection.on('message', function(message) {
     console.log('message received:', message.utf8Data)
   });
+  /*
+    add here a function
+    The function should be called when a message is sent to the socket
+    in the function add a console.log that will show the content of the message
+  */
 
   connection.on('close', function(connection) {
     // close user connection
     console.log('WebSocket closed !');
   });
+  /*
+    add here a function
+    The function should be called when the socket is closed by the client
+    in the function add a console.log that says 'WebSocket closed!'
+  */
 });
