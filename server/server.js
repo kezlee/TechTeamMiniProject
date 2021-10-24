@@ -12,15 +12,10 @@ wsServer = new WebSocketServer({
 
 // WebSocket server
 wsServer.on('request', function(request) {
-  var connection = request.accept(null, request.origin);
-  
   console.log('WebSocket Connected !');
 
-  // This is the most important callback for us, we'll handle
-  // all messages from users here.
-  connection.on('message', function(message) {
-    console.log('message received:', message.utf8Data)
-  });
+  var connection = request.accept(null, request.origin);  
+
   /*
     add here a function
     The function should be called when a message is sent to the socket
@@ -31,9 +26,4 @@ wsServer.on('request', function(request) {
     // close user connection
     console.log('WebSocket closed !');
   });
-  /*
-    add here a function
-    The function should be called when the socket is closed by the client
-    in the function add a console.log that says 'WebSocket closed!'
-  */
 });
