@@ -1,0 +1,93 @@
+:root {
+  --primary-color: rgb(29, 31, 34);
+  --secondary-color: rgb(255, 255, 255);
+  --btn-active-color: rgb(170, 170, 170);
+}
+
+body {
+  background: var(--primary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+}
+
+div, textarea {
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+.chat {
+  background-color: var(--primary-color);
+  border: 1px solid #fff;
+  border-radius: 10px;
+  width: 300px;
+  padding: 5px;
+  overflow: hidden;
+}
+
+.chat__history-container {
+  overflow: hidden;
+  border: 1px solid #fff;
+  border-radius: 5px;
+}
+
+.chat__history {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding: 5px;
+  background-color: var(--primary-color);
+  height: 50vh;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.chat__bubble {
+  max-width: 90%;
+  margin-top: 2px;
+  width: fit-content;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  padding: 5px 10px;
+  border-radius: 15px;
+}
+
+.chat__bubble--send {
+  align-self: flex-end;
+  position: relative;
+}
+
+.chat__input {
+  margin-top: 5px;
+  border-radius: 5px;
+  padding: 5px;
+  height: 60px;
+  width: 100%;
+  height: 100%;
+  border: none;
+  resize: none;
+}
+
+.btn {
+  cursor: pointer;
+  color: var(--secondary-color);
+  font-size: 20px;
+  background-color: var(--primary-color);
+  border-radius: 5px;
+  padding: 5px 10px;
+  user-select: none;
+}
+
+.btn:hover {
+  color: var(--primary-color);
+  background-color: var(--secondary-color);
+}
+
+.btn:active {
+  background-color: var(--btn-active-color);
+}
+
+.btn-container {
+  display: flex;
+  justify-content: end;
+}
