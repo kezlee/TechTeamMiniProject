@@ -22,18 +22,8 @@ function sendChatMessage() {
   const chatInputValue = chatInput.value;
   chatInput.value = "";
 
-  sendMessageToSocket(chatInputValue);
   sendMessageToHistory(chatInputValue);
-}
-
-function sendMessageToSocket(message) {
-  if(!ws) {
-    console.log('WebSocket not initialized', ws);
-    return;
-  }
-  console.log('message sent to', ws);
-  
-  ws.send(message)
+  sendMessageToSocket(chatInputValue);
 }
 
 function sendMessageToHistory(message) {
@@ -52,7 +42,7 @@ function polyFillChatStyle() {
 function initWebSocket() {
   const host = 'localhost';
   const port = '8080';
-  const ws = new WebSocket('ws://localhost:8080');
+  const ws = new WebSocket(`ws://${host}:${port}`);
   ws.onopen = () => {
     console.log('connection opened !')
   }
@@ -60,11 +50,20 @@ function initWebSocket() {
     console.log('message received', data);
   }
   ws.onclose = () => {
-    console.log('ws closed');
-    ws = null;
+    console.log('Websocket closed');
   }
 
   return ws;
+}
+
+function sendMessageToSocket(message) {
+  if(!ws) {
+    console.log('WebSocket not initialized', ws);
+    return;
+  }
+  console.log('message sent to WebSocket = ',message);
+  
+  ws.send(message)
 }
 
 polyFillChatStyle();
