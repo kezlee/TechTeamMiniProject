@@ -12,6 +12,8 @@ wsServer = new WebSocketServer({
 
 // WebSocket server
 wsServer.on('request', function(request) {
+  var connection = request.accept(null, request.origin);
+  
   console.log('WebSocket Connected !');
 
   // This is the most important callback for us, we'll handle
