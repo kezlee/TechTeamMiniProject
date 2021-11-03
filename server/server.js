@@ -1,7 +1,7 @@
-var WebSocketServer = require('websocket').server;
-var http = require('http');
+const WebSocketServer = require('websocket').server;
+const http = require('http');
 
-var server = http.createServer();
+const server = http.createServer();
 server.listen(8080);
 
 // create the server
@@ -12,7 +12,7 @@ wsServer = new WebSocketServer({
 
 // WebSocket server
 wsServer.on('request', function(request) {
-  var connection = request.accept(null, request.origin);
+  const connection = request.accept(null, request.origin);
   
   console.log('WebSocket Connected !');
 
